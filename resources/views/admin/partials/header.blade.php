@@ -1,4 +1,4 @@
-@auth
+
 <header class="fixed-top">
 
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -54,4 +54,4 @@
     </nav>
 
 </header>
-@endauth
+

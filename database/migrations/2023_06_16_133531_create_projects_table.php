@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('type_id')->nullable();
             $table->string('name', 50);
+            $table->string('original_img_name')->nullable();
+            $table->string('image_path')->nullable();
             $table->string('slug', 50)->unique();
             $table->string('purpose');
             $table->text('team_members')->nullable();
@@ -25,6 +28,10 @@ return new class extends Migration
             $table->string('technologies');
             $table->boolean('is_done')->default('0');
             $table->timestamps();
+            $table->foreign('type_id')
+                  ->references('id')
+                  ->on('types')
+                  ->onDelete('set null');
         });
     }
 
@@ -35,6 +42,8 @@ return new class extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('projects');
+
     }
 };

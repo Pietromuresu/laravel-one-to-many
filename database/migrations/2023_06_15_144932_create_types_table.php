@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('Projects', function (Blueprint $table) {
-            $table->string('original_img_name')->nullable()->after('name');
-            $table->string('image_path')->nullable()->after('name');
+        Schema::create('types', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('slug');
+            $table->timestamps();
         });
     }
 
@@ -26,9 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('Projects', function (Blueprint $table) {
-            $table->dropColumn('original_img_name');
-            $table->dropColumn('image_path');
-        });
+        Schema::dropIfExists('types');
     }
 };
