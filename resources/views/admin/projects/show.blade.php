@@ -7,18 +7,20 @@
         <h1 class="mb-5">
             {{ $project->name }}
         </h1>
-
         @if ($project->is_done )
-            <h4 class="text-success text-center mx-5 mt-3">
-                <i class="fa-solid fa-check"></i>
-                Completed
-            </h4>
+        <h4 class="text-success text-center mx-5 mt-3">
+            <i class="fa-solid fa-check"></i>
+            Completed
+        </h4>
         @else
-            <h4 class="text-danger text-center mx-5 mt-3">
-                <i class="fa-sharp fa-solid fa-record-vinyl" style="color: #dd2727;"></i>
-                Work in progress...
-            </h4>
+        <h4 class="text-danger text-center mx-5 mt-3">
+            <i class="fa-sharp fa-solid fa-record-vinyl" style="color: #dd2727;"></i>
+            Work in progress...
+        </h4>
         @endif
+    </div>
+    <div>
+        <span class="badge bg-success">{{$project->type->name}}</span>
     </div>
 
     <div class="">

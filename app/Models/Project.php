@@ -24,6 +24,7 @@ class Project extends Model
         "is_done",
         "original_img_name",
         "image_path",
+        "type_id"
     ];
 
     // Generate slug using the name of the Project is beeing created or updated

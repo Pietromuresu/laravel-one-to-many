@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use App\Http\Requests\ProjectRequest;
 use App\Models\Project;
+use App\Models\Type;
 class ProjectController extends Controller
 {
     /**
@@ -33,8 +34,8 @@ class ProjectController extends Controller
         $route = route('admin.projects.store');
         $project = null;
         $action = "Add";
-
-        return view('admin.projects.create-edit', compact('project', 'method', 'route', 'action'));
+        $types = Type::all();
+        return view('admin.projects.create-edit', compact('project', 'method', 'route', 'action', 'types'));
     }
 
     /**
@@ -94,7 +95,8 @@ class ProjectController extends Controller
         $method = "PUT";
         $route = route('admin.projects.update' , $project);
         $action = "Edit";
-        return view('admin.projects.create-edit', compact('project', 'method', 'route', 'action'));
+        $types = Type::all();
+        return view('admin.projects.create-edit', compact('project', 'method', 'route', 'action', 'types'));
     }
 
     /**

@@ -43,6 +43,27 @@
             </div>
         </div>
         <div class="mb-3">
+            {{--Type select --}}
+
+            <label for="type" class="form-label">
+                <strong>{{$action}} Type</strong>
+            </label>
+            <select class="form-select" name="type_id" aria-label="Default select example">
+                <option>Choose the type</option>
+                @foreach ($types as $type)
+
+                <option
+                  value="{{$type->id}}"
+                  @if ($type?->id == old('type_id', $project?->type->id))
+                    selected
+                  @endif>
+                  {{$type->name}}
+                </option>
+                @endforeach
+
+              </select>
+        </div>
+        <div class="mb-3">
             {{--Purpose text input --}}
 
             <label for="purpose" class="form-label">
