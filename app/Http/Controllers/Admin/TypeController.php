@@ -79,7 +79,12 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        dd($type);
+        $validated_datas = $request->validate(
+            [
+                'name' => 'required|unique:types',
+
+            ]
+        );
 
 
         $validated_datas['slug'] = Str::slug($validated_datas['name'], '-');
