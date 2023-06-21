@@ -49,15 +49,15 @@
                 <strong>{{$action}} Type</strong>
             </label>
             <select class="form-select" name="type_id" aria-label="Default select example">
-                <option>Choose the type</option>
+                <option value="">Choose the type</option>
                 @foreach ($types as $type)
 
                 <option
                   value="{{$type->id}}"
-                  @if ($type?->id == old('type_id', $project?->type->id))
+                  @if ($type->id == old('type_id', $project->type?->id))
                     selected
                   @endif>
-                  {{$type->name}}
+                  {{$type?->name}}
                 </option>
                 @endforeach
 
@@ -195,8 +195,11 @@
                 </label>
 
                     <input
+                    @if ($project->is_done == 1)
+                        checked
+                    @endif
                       value="1"
-                      type="checkbox"
+                      type="radio"
                       id="is_done"
                       name="is_done"
                       aria-describedby="basic-addon3 basic-addon4">
@@ -208,8 +211,11 @@
                 </label>
 
                 <input
+                @if ($project->is_done == 0)
+                    checked
+                @endif
                   value="0"
-                  type="checkbox"
+                  type="radio"
                   id="is_done"
                   name="is_done"
                   aria-describedby="basic-addon3 basic-addon4">

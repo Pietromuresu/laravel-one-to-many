@@ -61,6 +61,7 @@ class ProjectController extends Controller
 
 
         $new_project->fill($form_data);
+
         $new_project->save();
 
         return redirect()->route('admin.projects.show', $new_project);

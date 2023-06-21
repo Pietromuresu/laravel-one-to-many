@@ -20,7 +20,7 @@
         @endif
     </div>
     <div>
-        <span class="badge bg-success">{{$project->type->name}}</span>
+        <span class="badge bg-success">{{$project->type?->name}}</span>
     </div>
 
     <div class="">

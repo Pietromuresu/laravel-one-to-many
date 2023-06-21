@@ -9,7 +9,7 @@
         <div class="pm-card-title position-relative">
 
             <h4 class="text-dark">{{$project->name}}</h4>
-            <span>{{$project->type->name}}</span>
+            <span>{{$project->type?->name}}</span>
 
         </div>
 
