@@ -23,6 +23,12 @@
                     All projects
                 </a>
             </li>
+            <li class="py-2 ps-4 border bg-light">
+                <a class="nav-link" href="{{route('admin.types.index')}}">
+                    <i class="fa-solid fa-border-all"></i>
+                    All types
+                </a>
+            </li>
 
         </ul>
     </div>
