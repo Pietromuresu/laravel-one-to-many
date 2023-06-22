@@ -54,7 +54,7 @@
 
                 <option
                   value="{{$type->id}}"
-                  @if ($type->id == old('type_id', $project->type?->id))
+                  @if ($type->id == old('type_id', $project?->type?->id))
                     selected
                   @endif>
                   {{$type?->name}}
@@ -195,7 +195,7 @@
                 </label>
 
                     <input
-                    @if ($project->is_done == 1)
+                    @if ($project?->is_done == 1)
                         checked
                     @endif
                       value="1"
@@ -211,7 +211,7 @@
                 </label>
 
                 <input
-                @if ($project->is_done == 0)
+                @if ($project?->is_done == 0)
                     checked
                 @endif
                   value="0"

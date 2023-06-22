@@ -82,14 +82,14 @@ class TypeController extends Controller
         $validated_datas = $request->validate(
             [
                 'name' => 'required|unique:types',
-
             ]
         );
 
 
+
         $validated_datas['slug'] = Str::slug($validated_datas['name'], '-');
         $type->update($validated_datas);
-        return redirect()->back();
+        return redirect()->route('admin.types.index');
 
     }
 
